@@ -1,7 +1,7 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  background-color: #09021d;
+  background-color: #0a0731;
   height: 100%;
   padding: 50px;
   color: #ffafa2;
@@ -63,6 +63,7 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin: 12px;
 }
 
 button:hover {

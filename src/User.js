@@ -12,7 +12,7 @@ const User = ({ user, removeUser }) => {
       <h1>what you want to do with this minion, {user.name}</h1>
       <button onClick={() => removeUser(user)}> you are Fire!</button>
       <Link to="/users">
-        <button> you can stay!</button>
+        <button> you can Stay!</button>
       </Link>
     </div>
   );
