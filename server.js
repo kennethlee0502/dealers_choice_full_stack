@@ -1,17 +1,46 @@
 const express = require("express");
 const path = require("path");
-const { data, Thing } = require("./db");
-
 const app = express();
+const { data, User } = require("./db");
+
+app.use(express.json());
+
 app.use("/dist", express.static(path.join(__dirname, "dist")));
 app.get("/", (req, res, next) =>
   res.sendFile(path.join(__dirname, "index.html"))
 );
+
 //app.use(express.static(__dirname + "/public"));
 
-app.get("/", async (req, res, next) => {
+app.get("/api/users", async (req, res, next) => {
   try {
-    res.send(await Thing.findAll());
+    res.send(await User.findAll());
+  } catch (ex) {
+    next(ex);
+  }
+});
+
+app.get("/api/users/:id", async (req, res, next) => {
+  try {
+    res.send(await User.findByPk(req.params.id));
+  } catch (ex) {
+    next(ex);
+  }
+});
+
+app.post("/api/users", async (req, res, next) => {
+  try {
+    res.status(201).send(await User.create(req.body));
+  } catch (ex) {
+    next(ex);
+  }
+});
+
+app.delete("/api/users/:id", async (req, res, next) => {
+  try {
+    const asset = await User.findByPk(req.params.id);
+    await asset.destroy();
+    res.sendStatus(204);
   } catch (ex) {
     next(ex);
   }
