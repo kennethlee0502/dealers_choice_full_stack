@@ -10,7 +10,7 @@ app.get("/", (req, res, next) =>
   res.sendFile(path.join(__dirname, "index.html"))
 );
 
-//app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 
 app.get("/api/users", async (req, res, next) => {
   try {
