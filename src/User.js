@@ -10,7 +10,7 @@ const User = ({ user, removeUser }) => {
   return (
     <div>
       <h1>what you want to do with this minion, {user.name}</h1>
-      <button onClick={() => removeUser(user)}> you are Fire!</button>
+      <button onClick={() => removeUser(user)}> you are Fired!</button>
       <Link to="/users">
         <button> you can Stay!</button>
       </Link>
